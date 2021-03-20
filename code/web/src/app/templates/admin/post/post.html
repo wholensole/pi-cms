@@ -1,0 +1,221 @@
+<widget-admin-sidebar></widget-admin-sidebar>
+<div class="main">
+    <widget-admin-header></widget-admin-header>
+    <div class="content">
+        <h1><a [routerLink]="['/admin/posts/'+this.postType]" class="hi-chevron-left"></a>{{page.title}} <a title="Click to view" *ngIf="action != 'add'" href="{{'/'+activeSlug+'?preview=1'}}" target="_blank" class="hi-paper-plane1"></a></h1>
+        <form class="columns" [formGroup]="postForm" (ngSubmit)="savePost()">
+            <div class="left">
+                <div class="box">
+                    <h4 class="head">
+                        Title
+                    </h4>
+                    <div class="body">
+                        <input type="text" autofocus formControlName="title" (keyup)="slugify()"/>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Slug
+                    </h4>
+                    <div class="body">
+                        <input type="text" formControlName="slug" />
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Content
+                    </h4>
+                    <div class="body">
+                        <editor formControlName="content" apiKey="{{tinymceApiKey}}" initialValue="{{editorValue}}" [init]="editorOptions"></editor>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Excerpt
+                    </h4>
+                    <div class="body">
+                        <editor formControlName="excerpt" apiKey="{{tinymceApiKey}}" initialValue="Enter excerpt here..." [init]="editorOptions"></editor>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        CSS
+                    </h4>
+                    <div class="body">
+                        <textarea class="description" formControlName="stylesheet" placeholder=".selector{property:value}"></textarea>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        JS
+                    </h4>
+                    <div class="body">
+                        <textarea class="description" formControlName="script" placeholder="alert('Type your script here')"></textarea>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Canonical URL
+                    </h4>
+                    <div class="body">
+                      <input type="text" formControlName="canonical" />
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Robots
+                    </h4>
+                    <div class="body">
+                        <ng-select2 [data]="robotsData" [options]="robotsOptions" [width]="500" formControlName="robots" placeholder="Select Robots"></ng-select2>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Meta Description
+                    </h4>
+                    <div class="body">
+                        <textarea formControlName="description" placeholder="Enter meta description here"></textarea>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Meta Keywords
+                    </h4>
+                    <div class="body">
+                        <input type="text" formControlName="keywords" />
+                        <!-- <ng-select2 [data]="keywordsData" [options]="keywordOptions" [width]="500" formControlName="keywords" placeholder="Enter Keywords"></ng-select2> -->
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="box">
+                    <h4 class="head">
+                        Meta
+                    </h4>
+                    <div class="body">
+                        <p>Render Slug:<span (click)="renderSlug=!renderSlug" class="switch" [ngClass]="{on: renderSlug}" title="Click to Enable/Disable auto slug rendering"></span></p>
+                        <button [disabled]="!postForm.dirty" [title]="(!postForm.dirty)?'Please make some chnages to save':'Click here to save'" class="btn btn-yellow has-icon" type="submit"><i class="hi-check"></i>Save</button>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Author
+                    </h4>
+                    <div class="body overflown">
+                        <ng-select2 [data]="authorData" [options]="authorOptions" [width]="500" formControlName="author_id" placeholder="Select Author"></ng-select2>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Publish Date
+                    </h4>
+                    <div class="body overflown">
+                        <dp-date-picker formControlName="postDate"></dp-date-picker>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Status
+                    </h4>
+                    <div class="body">
+                        <ng-select2 [data]="statusData" [options]="statusOptions" [width]="500" formControlName="status" placeholder="Select Status"></ng-select2>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Layout
+                    </h4>
+                    <div class="body">
+                        <ng-select2 [data]="layoutData" [options]="layoutOptions" [width]="500" formControlName="layout" placeholder="Select Layout"></ng-select2>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Categories
+                    </h4>
+                    <div class="body">
+                        <ng-select2 [data]="categoriesData" [options]="categoryOptions" [width]="500" formControlName="categories" placeholder="Select Categories"></ng-select2>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Tags
+                    </h4>
+                    <div class="body">
+                        <ng-select2 [data]="tagsData" [options]="tagOptions" [width]="500" formControlName="tags" placeholder="Select Tags"></ng-select2>
+                    </div>
+                </div>
+                <div class="box">
+                    <h4 class="head">
+                        Media
+                    </h4>
+                    <div class="body">
+                        <label (click)="showMediaModal=true;getImageValue();activePopup = 'media'" class="btn has-icon btn-yellow btn-small"><i class="hi-images"></i>Add Media</label>
+                        <input class="hidden images-group" type='text' formControlName="images" />
+                        <div class="upload-box" *ngIf="urls.length>0">
+                            <div class="media-files">
+                                <ul>
+                                    <li *ngFor="let u of urls">
+                                        <span class="close hi-trash" (click)="delete(u, 'media')"></span>
+                                        <img src="{{imageBase+u}}" />
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" *ngIf="postType == 'solution'">
+                    <h4 class="head">
+                        Product Video
+                    </h4>
+                    <div class="body">
+                        <label (click)="showMediaModal=true;getImageValue();activePopup = 'product-video'" class="btn has-icon btn-yellow btn-small"><i class="hi-images"></i>Add Video</label>
+                        <input class="hidden images-group" type='text' formControlName="video" />
+                        <div class="upload-box" *ngIf="videourls.length>0">
+                            <div class="media-files">
+                                <ul>
+                                    <li *ngFor="let u of videourls">
+                                        <span class="close hi-trash" (click)="delete(u, 'video')"></span>
+                                        <video width="320" height="240" controls>
+                                            <source src="{{imageBase+u}}">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box" *ngIf="postType == 'solution'">
+                    <h4 class="head">
+                        Pdf
+                    </h4>
+                    <div class="body">
+                        <label (click)="showMediaModal=true;getImageValue();activePopup = 'pdf'" class="btn has-icon btn-yellow btn-small"><i class="hi-images"></i>Add Pdf</label>
+                        <input class="hidden images-group" type='text' formControlName="pdf" />
+                        <div class="upload-box" *ngIf="pdfurls.length>0">
+                            <div class="media-files">
+                                <ul>
+                                    <li *ngFor="let u of pdfurls" class="doc-box">
+                                        <span class="close hi-trash" (click)="delete(u, 'pdf')"></span>
+                                        <i class="doc-icon hi-adobe"></i>
+                                        <p class="doc-name"><a href="{{imageBase+u}}" title="Preview" target="_blank">{{u}}</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <widget-admin-footer></widget-admin-footer>
+</div>
+<div class="modal-box" *ngIf="showMediaModal">
+    <div class="modal">
+        <span class="modal-close hi-close" (click)="showMediaModal=false;setImageValue()"></span>
+        <widget-admin-media *ngIf="activePopup == 'media'"></widget-admin-media>
+        <widget-admin-product-video *ngIf="activePopup == 'product-video'"></widget-admin-product-video>
+        <widget-admin-pdf *ngIf="activePopup == 'pdf'"></widget-admin-pdf>
+    </div>
+</div>

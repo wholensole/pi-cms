@@ -1,0 +1,44 @@
+<widget-admin-sidebar></widget-admin-sidebar>
+<div class="main">
+    <widget-admin-header></widget-admin-header>
+    <div class="content">
+        <h1>All {{page.title}}s <a class="btn btn-yellow btn-small" [routerLink]="'/admin/post/'+postType+'/add'">Add New {{page.title}}</a></h1>
+        <div class="actions"></div>
+        <table *ngIf="posts.length>0">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th class="small">Slug</th>
+                    <th class="small">Categories</th>
+                    <th class="small">Tags</th>
+                    <th class="small">Author</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of posts">
+                    <td>
+                        <p>{{item.title}}</p>
+                        <div class="actions">
+                            <i class="hi-trash" (click)="trashPost(item.id)"></i>
+                            <i class="hi-edit" (click)="editPost(item.id)"></i>
+                            <a class="hi-paper-plane1" [routerLink]="['/'+item.slug]" target="_blank"></a>
+                        </div>
+                    </td>
+                    <td class="small">{{item.slug}}</td>
+                    <td class="small">{{item.categories}}</td>
+                    <td class="small">{{item.tags}}</td>
+                    <td class="small">{{getAuthor(item.author_id)}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <ul class="pagination" *ngIf="pagesCount>1">
+            <li (click)="getPosts(postType, pageSize, pageNumber-1)" class="prev" [ngClass]="{'inactive': pageNumber == 0}"><i class="icon">&laquo;</i><span> Prev</span></li>
+            <li *ngFor="let p of Arr(pagesCount).fill(1);index as i" (click)="getPosts(postType, pageSize, i)" [ngClass]="{'active': i == pageNumber}">{{i+1}}</li>
+            <li (click)="getPosts(postType, pageSize, pageNumber+1)" class="next" [ngClass]="{'inactive': pageNumber+1 == pagesCount}"><span>Next </span><i class="icon">&raquo;</i></li>
+        </ul>
+        <p class="no-data" *ngIf="posts.length==0">
+            <img src="/pi-cms/api/5de6803f193ca.png" />
+        </p>
+    </div>
+    <widget-admin-footer></widget-admin-footer>
+</div>

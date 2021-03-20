@@ -1,0 +1,11 @@
+template-admin-page-not-found {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .error-box {
+        margin: auto;
+        h1 {
+            font-size: 50px;
+        }
+    }
+}

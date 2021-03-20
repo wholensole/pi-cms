@@ -1,0 +1,185 @@
+<widget-header></widget-header>
+<div class="main" *ngFor="let p of posts">
+    <div class="banner {{p.layout+' '+p.type}}" [ngStyle]="{backgroundImage: (hasFixedImage)?'url('+imageBase+activeBannerImage+')':'url('+imageBase+p.images+')'}" *ngIf="p.slug!='home'&&p.slug!='brand-guide'">
+        <div class="container">
+            <div class="brand-box" *ngIf="p.type == 'case-study'">
+                <img src="{{imageBase+u}}" *ngFor="let u of urls" class="brand" />
+            </div>
+            <ngx-typed-js [strings]='[p.title.replace("&", "and")]' [typeSpeed]="100" *ngIf="p.type != 'case-study'">
+                <h1 class="typing title">{{p.title.replace("&", "and")}}</h1>
+            </ngx-typed-js>
+            <div class="excerpt" [innerHtml]="p.excerpt" *ngIf="p.type!='post'&&p.type!='solution'&&p.type!='case-study'"></div>
+        </div>
+    </div>
+    <div class="content {{p.type}}" [innerHtml]="postContent" [ngClass]="{'container': p.layout!='full', 'wow slideInRight':p.type == 'industry'}" *ngIf="p.type!='solution' && p.type != 'post' && p.type != 'case-study'"></div>
+    <div class="content container" *ngIf="p.type=='solution'">
+        <div class="product-preview">
+            <div class="preview-box" *ngIf="urls.length>0">
+                <div class="image-preview-box">
+                    <!-- <ngx-image-zoom [thumbImage]="imageBase+activeImage" [fullImage]="imageBase+activeImage"></ngx-image-zoom> -->
+                    <img src="{{imageBase+activeImage}}" title="{{p.title}}" alt="{{p.title}}" />
+                </div>
+                <div class="media-files">
+                    <ul>
+                        <li *ngFor="let u of urls" (click)="activeImage = u">
+                            <img src="{{imageBase+u}}" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-box">
+                <h3>Product Info</h3>
+                <div [innerHtml]="p.excerpt"></div>
+                <div class="buttons">
+                    <button class="btn btn-black" (click)="showRequestForm=true">Request A Quote</button>
+                    <button class="btn btn-white" (click)="scrolltoDescription()">Read More</button>
+                </div>
+            </div>
+        </div>
+        <div class="accordion description">
+            <h3 class="head">Description</h3>
+            <div class="body" [innerHtml]="p.content"></div>
+        </div>
+        <div class="accordion" *ngIf="videourls.length>0">
+            <h3 class="head">Product Video</h3>
+            <div class="body">
+                <ul class="product-video">
+                    <li *ngFor="let p of videourls">
+                        <video controls>
+                            <source src="{{imageBase+p}}">
+                            Your browser does not support the video tag.
+                        </video>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="accordion" *ngIf="pdfurls.length>0">
+            <h3 class="head">Available Downloads</h3>
+            <div class="body">
+                <ul class="product-pdf">
+                    <li *ngFor="let p of pdfurls">
+                        <a title="Download" href="{{imageBase+p}}" target="_blank">
+                            <img src="{{imageBase+'5e0ea23a29dcc.png'}}" />
+                            <span>{{p}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="accordion">
+            <h3 class="head">Our Customers</h3>
+            <div class="body">
+                <ul class="brands">
+                    <li *ngFor="let i of brands">
+                        <img src="{{imageBase+i}}" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="accordion">
+            <h3 class="head">Global Solutions</h3>
+            <div class="body">
+                <div class="product-slider">
+                    <div class="slide">
+                        <div class="product-img">
+                            <img class="product-image" src="/pi-cms/api/5de6cd288595f.png" />
+                        </div>
+                        <p class="product-name">Fusion Catalyst&trade;</p>
+                        <a href="/fusion-catalyst"></a>
+                    </div>
+                    <div class="slide">
+                        <div class="product-img">
+                            <img class="product-image" src="/pi-cms/api/5de6ccab0af65.png" />
+                        </div>
+                        <p class="product-name">Canvas CRS-4K&trade;</p>
+                        <a href="/canvas-crs-4k"></a>
+                    </div>
+                    <div class="slide">
+                        <div class="product-img">
+                            <img class="product-image" src="/pi-cms/api/5de6d2ae34fb4.png" />
+                        </div>
+                        <p class="product-name">Canvas</p>
+                        <a href="/canvas"></a>
+                    </div>
+                    <div class="slide">
+                        <div class="product-img">
+                            <img class="product-image" src="/pi-cms/api/5de6d3d24d93c.png" />
+                        </div>
+                        <p class="product-name">PixelNet&reg;</p>
+                        <a href="/pixelnet"></a>
+                    </div>
+                    <div class="slide">
+                        <div class="product-img">
+                            <img class="product-image" src="/pi-cms/api/5de6d5e619d94.png" />
+                        </div>
+                        <p class="product-name">Catalyst XLe</p>
+                        <a href="/catalyst-xl"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content container flex-container {{p.type}}" *ngIf="p.type=='post' || p.type == 'case-study'">
+        <main class="main-content">
+            <p *ngIf="p.type != 'case-study'" class="meta-content"><span class="date"><i class="hi-calendar"></i>{{p.post_date}}</span><span class="author"><i class="hi-user"></i>{{getAuthor(p.author_id)}}</span></p>
+            <div *ngIf="p.type == 'case-study'" class="post-excerpt">
+                <h2>Problem</h2>
+                <p>{{p.title.replace("&", "and")}}</p>
+                <h2>Solution</h2>
+                <div [innerHtml]="p.excerpt"></div>
+            </div>
+            <div class="post-content" [innerHtml]="postContent"></div>
+            <p class="categories"><b>Categorised In: </b>{{p.categories}}</p>
+            <p class="tags"><i class="hi-tags"></i><b> Tags: </b> {{p.tags}}</p>
+        </main>
+        <aside class="main-sidebar">
+          <widget-sidebar></widget-sidebar>
+        </aside>
+    </div>
+    <section class="gray" *ngIf="p.type == 'case-study'">
+        <div class="container">
+            <h4>Recent Case Studies</h4>
+            <widget-reviews-slider></widget-reviews-slider>
+        </div>
+    </section>
+</div>
+<widget-footer></widget-footer>
+<div class="modal-box" *ngIf="showRequestForm">
+    <div class="modal">
+        <span class="modal-close hi-close" (click)="showRequestForm=false;"></span>
+        <h3 class="mb30">Request A Quote</h3>
+        <form class="request-form" [formGroup]="quoteForm" (ngSubmit)="requestAQuote()">
+            <div class="form-group validate-input">
+                <input type="text" formControlName="name" autofocus />
+                <label [ngClass]="{'active':quoteForm.value.name!=''}" for="name">Your Name</label>
+                <small class="msg text-danger">Please enter your full name</small>
+                <input type="hidden" formControlName="product" required autofocus />
+            </div>
+            <div class="form-group validate-input">
+                <input type="text" formControlName="emailAddress" required />
+                <label [ngClass]="{'active':quoteForm.value.emailAddress!=''}" for="emailAddress">Email Address</label>
+                <small class="msg text-danger">Please enter your email address</small>
+            </div>
+            <div class="form-group validate-input">
+                <input type="text" formControlName="phone" required />
+                <label [ngClass]="{'active':quoteForm.value.phone!=''}" for="phone">Phone</label>
+                <small class="msg text-danger">Please enter your Phone Number</small>
+            </div>
+            <div class="form-group validate-input">
+                <input type="text" formControlName="company" required />
+                <label [ngClass]="{'active':quoteForm.value.company!=''}" for="company">Company</label>
+                <small class="msg text-danger">Please enter your company</small>
+            </div>
+            <div class="form-group validate-input">
+                <select formControlName="region" required>
+                    <option *ngFor='let item of countryList | keyvalue' value='{{item.key}}'>{{item.value}}</option>
+                </select>
+                <label [ngClass]="{'active':quoteForm.value.region!=''}" for="region">Region</label>
+                <small class="msg text-danger">Please enter your region</small>
+            </div>
+            <div class="buttons">
+                <button class="btn has-icon btn-yellow btn-right" type="submit"><i class="hi-paper-plane1"></i>Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

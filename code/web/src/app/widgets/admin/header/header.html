@@ -1,0 +1,7 @@
+<button class="btn btn-nav hi-nav" (click)="toggleNav()"></button>
+<p>Admin Panel</p>
+<p class="name" (click)="showSubAdminMenu=!showSubAdminMenu"><i class="hi-user"></i>{{user.f_name}}</p>
+<ul *ngIf="showSubAdminMenu">
+    <li><a [routerLink]="['/admin/my-account']"><i class="hi-user"></i>My Account</a></li>
+    <li><a (click)="logout()"><i class="hi-logout"></i>Logout</a></li>
+</ul>

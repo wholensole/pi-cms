@@ -1,0 +1,21 @@
+@import '../../../../assets/scss/vars';
+template-admin-post {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    .switch {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: bottom;
+        background-color: $red;
+        margin-left: 10px;
+        &.on {
+            background-color: $green;
+        }
+    }
+}

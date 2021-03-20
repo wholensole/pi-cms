@@ -1,0 +1,89 @@
+<widget-header></widget-header>
+<div class="main">
+    <div class="banner boxed">
+        <div class="container">
+            <ngx-typed-js [strings]="[page.title]" [typeSpeed]="100">
+                <h1 class="typing title">{{page.title}}</h1>
+            </ngx-typed-js>
+            <p class="subtitle">{{page.subTitle}}</p>
+        </div>
+    </div>
+    <div class="content container">
+        <div class="form-box">
+            <div class="form">
+                <h2>Send us a Message<i class="hi-mail"></i></h2>
+                <form [formGroup]="contactForm" (ngSubmit)="contact()">
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="name" autofocus />
+                            <label [ngClass]="{'active':contactForm.value.name!=''}" for="name">Your Name</label>
+                            <small class="msg text-danger">Please enter your full name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="emailAddress" />
+                            <label [ngClass]="{'active':contactForm.value.emailAddress!=''}" for="emailAddress">Email Address</label>
+                            <small class="msg text-danger">Please enter your email address</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="phone" />
+                            <label [ngClass]="{'active':contactForm.value.phone!=''}" for="phone">Phone</label>
+                            <small class="msg text-danger">Please enter your Phone Number</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="company" />
+                            <label [ngClass]="{'active':contactForm.value.company!=''}" for="company">Company</label>
+                            <small class="msg text-danger">Please enter your company</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <select formControlName="region">
+                                <option *ngFor='let item of countryList | keyvalue' value='{{item.key}}'>{{item.value}}</option>
+                            </select>
+                            <label [ngClass]="{'active':contactForm.value.region!=''}" for="region">Region</label>
+                            <small class="msg text-danger">Please enter your region</small>
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <textarea formControlName="message"></textarea>
+                            <label [ngClass]="{'active':contactForm.value.message!=''}" for="message">Message</label>
+                            <small class="msg text-danger">Please enter your message</small>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn has-icon btn-yellow btn-right"><i class="hi-paper-plane1"></i>Send</button>
+                    </div>
+                </form>
+            </div>
+            <div class="form-meta">
+                <h3>Contact Information</h3>
+                <div class="contact-column">
+                    <i class="hi-location"></i>
+                    <p>PI CMS Systems 31015 Huntwood Ave. Hayward, CA 94544 USA</p>
+                </div>
+                <div class="contact-column">
+                    <i class="hi-landline"></i>
+                    <p><strong>Main:</strong> +1 510 675 1000<br /><strong>Fax:</strong> +1 510 675 1001</p>
+                </div>
+                <div class="contact-column">
+                    <i class="hi-mailru"></i>
+                    <p><strong>General Sales:</strong> <a href="mailto:sales@pi-cms.com">sales@pi-cms.com</a><br /><strong>Order Status:</strong> <a href="orders@pi-cms.com">orders@pi-cms.com</a><br /><strong>Marketing:</strong> <a href="marketing@pi-cms.com">marketing@pi-cms.com</a><br /><strong>Main Support:</strong> <a href="mailto:support@pi-cms.com">support@pi-cms.com</a><br /><strong>EMEA:</strong> <a href="mailto:emea-sales@pi-cms.com">emea-sales@pi-cms.com</a><br /><strong>LATAM:</strong> <a href="mailto:latam-sales@pi-cms.com">latam-sales@pi-cms.com</a><br /><strong>APAC:</strong> <a href="mailto:Asia-sales@pi-cms.com">Asia-sales@pi-cms.com</a></p>
+                </div>
+                <ul class="social-links">
+                    <li><a class="hi-facebook facebook" href="#"></a></li>
+                    <li><a class="hi-twitter twitter" href="#"></a></li>
+                    <li><a class="hi-linkedin linkedin" href="https://www.linkedin.com/company/pi-cms-systems/"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="contact-box">
+            <h4>Our normal business hours are between 9:00 am and 5:00 pm Pacific Time<br />Monday through Friday.</h4>
+            <p>(The Pacific Time Zone is UTC/GMT -8 hours during Standard Time, or UTC/GMT -7 hours if Daylight Savings Time is in effect).</p>
+        </div>
+    </div>
+</div>
+<widget-footer></widget-footer>

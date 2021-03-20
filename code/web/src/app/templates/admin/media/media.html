@@ -1,0 +1,46 @@
+<widget-admin-sidebar></widget-admin-sidebar>
+<div class="main">
+    <widget-admin-header></widget-admin-header>
+    <div class="content">
+        <h1>{{page.title}} <label for="uploader" class="btn btn-yellow has-icon btn-small"><i class="hi-images"></i>Add Media</label></h1>
+        <input class="hidden" type='file' (change)="onSelectFile($event)" multiple id="uploader" />
+        <form [formGroup]="mediaForm" (ngSubmit)="uploadMedia()">
+            <input class="hidden" type='text' formControlName="files" />
+            <input type="submit" class="hidden" id="uploaderButton" />
+        </form>
+        <div class="upload-box" *ngIf="urls.length>0">
+            <h2>Files to Upload</h2>
+            <div class="media-files">
+                <ul>
+                    <li *ngFor="let url of urls" [ngClass]="{'doc-box': ['pdf'].indexOf(url.url) != -1}">
+                        <img src="{{url.url}}"/>
+                        <!-- <video width="320" height="240" controls *ngIf="['mp4', 'webm', 'ogg', 'ogv', 'avi'].indexOf(url.name) != -1">
+                            <source src="{{url.url}}">
+                            Your browser does not support the video tag.
+                        </video>
+                        <i class="doc-icon hi-adobe" *ngIf="['pdf'].indexOf(url.name) != -1"></i>
+                        <p class="doc-name" *ngIf="['pdf'].indexOf(url.name) != -1">{{url.name}}</p> -->
+                    </li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <label for="uploaderButton" class="btn btn-yellow has-icon next"><i class="hi-attachment"></i><span>Upload</span></label>
+            </div>
+        </div>
+        <div class="media-files">
+            <ul *ngIf="mediaFiles.length>0">
+                <li *ngFor="let media of mediaFiles" [ngClass]="{'doc-box': ['pdf'].indexOf(media.type) != -1}">
+                    <span class="close hi-trash" (click)="delete(media.id)"></span>
+                    <img src="{{imageBase+media.upload_path}}" *ngIf="['image'].indexOf(media.type) != -1"/>
+                    <video width="320" height="240" controls *ngIf="['video'].indexOf(media.type) != -1">
+                        <source src="{{imageBase+media.upload_path}}">
+                        Your browser does not support the video tag.
+                    </video>
+                    <i class="doc-icon hi-adobe" *ngIf="['pdf'].indexOf(media.type) != -1"></i>
+                    <p class="doc-name" *ngIf="['pdf'].indexOf(media.type) != -1"><a href="{{imageBase+media.upload_path}}" title="Preview" target="_blank">{{media.upload_path}}</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <widget-admin-footer></widget-admin-footer>
+</div>

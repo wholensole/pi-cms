@@ -1,0 +1,92 @@
+@import '../../../../assets/scss/vars';
+widget-admin-sidebar {
+    max-width: 240px;
+    width: 100%;
+    background-color: $secondary;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    margin-left: 0;
+    a.logo {
+        padding: 5px 10px;
+        display: flex;
+        height: 80px;
+        background-color: $white;
+        img {
+            width: auto;
+            height: 80%;
+            margin: auto;
+        }
+    }
+    ul.side-nav {
+        overflow: auto;
+        height: calc(100% - 80px);
+        margin: 0;
+        padding: 20px 0 0 0;
+        list-style: none;
+        li {
+            a {
+                display: block;
+                line-height: 50px;
+                padding: 0 20px;
+                text-decoration: none;
+                color: rgba(255,255,255,0.5);
+                white-space: nowrap;
+                &:hover {
+                    color: $whitish;
+                }
+                i {
+                    margin-right: 10px;
+                }
+            }
+            ul {
+                margin: 0;
+                padding: 0;
+                transition: all 0.3s ease-in-out;
+                max-height: 0;
+                overflow: hidden;
+                li {
+                    a {
+                        line-height: 40px;
+                        font-size: 13px;
+                        padding-left: 30px;
+                    }
+                }
+            }
+            &:hover, &.active {
+                ul {
+                    max-height: 100vh;
+                }
+            }
+            &.active {
+                a {
+                    &.active {
+                        background-color: $primary;
+                        color: $whitish;
+                        position: relative;
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            border: 9px solid transparent;
+                            border-right: 9px solid $whitish;
+                            right: 0;
+                            top: calc(50% - 9px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.open {
+        text-align: left;
+        margin-left: -240px;
+        a.logo {
+            img {
+                width: auto;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+        ul.side-nav {
+            text-align: left;
+        }
+    }
+}

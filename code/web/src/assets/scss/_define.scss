@@ -1,0 +1,27 @@
+%box-shadow {
+    box-shadow: 0 1px 2px #ccc
+}
+%box-shadow-large {
+    box-shadow: 0 2px 3px #999
+}
+%regular-font {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px
+}
+%fast-transition {
+    transition: all 0.1s ease-in-out
+}
+%smooth-transition {
+    transition: all 0.3s ease-in-out
+}
+%slow-transition {
+    transition: all 0.5s ease-in-out
+}
+%heading {
+    font-weight: 400;
+    margin: 0;
+}
+html, body, div, ul, ol, li, a, p, span, i, ::after, ::before, header, footer, section, aside, main, b, input, button, canvas, svg, textarea, select, table, tr, tfoot, th, thead, tbody, td {
+    box-sizing: border-box;
+}

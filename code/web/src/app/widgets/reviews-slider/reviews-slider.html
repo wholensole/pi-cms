@@ -1,0 +1,16 @@
+<div class="reviews-slider">
+    <div class="review" *ngFor="let p of posts">
+        <img src="{{imageBase+p.images}}" class="review-brand" />
+        <p class="rating">
+            <i class="hi-star"></i>
+            <i class="hi-star"></i>
+            <i class="hi-star"></i>
+            <i class="hi-star"></i>
+            <i class="hi-star"></i>
+        </p>
+        <p class="review-text">
+            {{p.title}}
+        </p>
+        <a class="read-more" [routerLink]="['/'+p.slug]">Read More</a>
+    </div>
+</div>

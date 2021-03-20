@@ -1,0 +1,34 @@
+<widget-admin-sidebar></widget-admin-sidebar>
+<div class="main">
+    <widget-admin-header></widget-admin-header>
+    <div class="content">
+        <h1>{{page.title}}</h1>
+        <div class="boxes">
+            <div class="box">
+                <h4 class="head">
+                    At a glance
+                </h4>
+                <div class="body">
+                    <ul>
+                        <li *ngFor="let item of postData">
+                            <a [title]="item.type" [routerLink]="['/admin/posts/'+item.type]" routerLinkActive="router-link-active"><i class="hi-pencil"></i> {{item.count}} {{item.type}}{{(item.count>1)?'s':''}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="box">
+                <h4 class="head">
+                    User Data
+                </h4>
+                <div class="body">
+                    <ul>
+                        <li *ngFor="let item of userData">
+                            <a [routerLink]="['/admin/users']" routerLinkActive="router-link-active"><i class="hi-users"></i> {{item.count}} {{item.role}}{{(item.count>1)?'s':''}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <widget-admin-footer></widget-admin-footer>
+</div>

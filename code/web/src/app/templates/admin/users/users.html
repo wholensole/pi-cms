@@ -1,0 +1,36 @@
+<widget-admin-sidebar></widget-admin-sidebar>
+<div class="main">
+    <widget-admin-header></widget-admin-header>
+    <div class="content">
+        <h1>{{page.title}} <a class="btn btn-yellow btn-small" [routerLink]="['/admin/user/add/']">Add New User</a></h1>
+        <div class="actions"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th class="small">Username</th>
+                    <th class="small">Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of users">
+                    <td>
+                        <p>
+                            <span class="status {{item.status}}"></span>
+                            {{item.f_name}} {{item.m_name}} {{item.l_name}}
+                        </p>
+                        <div class="actions">
+                            <i class="hi-edit" title="Edit User" (click)="editUser(item.id)"></i>
+                            <i class="hi-trash" title="Trash User" (click)="updateUser(item.id, 'trash')"></i>
+                            <i class="hi-check" title="Activate User" (click)="updateUser(item.id, 'active')" *ngIf="item.status != 'active'"></i>
+                            <i class="hi-close" title="Deactivate User" (click)="updateUser(item.id, 'deactive')" *ngIf="item.status == 'active'"></i>
+                        </div>
+                    </td>
+                    <td class="small">{{item.username}}</td>
+                    <td class="small">{{item.role}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <widget-admin-footer></widget-admin-footer>
+</div>

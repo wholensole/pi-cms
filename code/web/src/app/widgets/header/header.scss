@@ -1,0 +1,245 @@
+@import '../../../assets/scss/vars';
+widget-header {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px 20px 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    &:after {
+        content: "";
+        position: absolute;
+        border-top: 1px solid $whitish;
+        left: 90px;
+        right: 0;
+        bottom: 20px;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        left: -100px;
+        right: -100px;
+        top: -100%;
+        bottom: 100%;
+        z-index: -1;
+        box-shadow: 0 40px 50px $dark_gray;
+    }
+    a.logo {
+        display: block;
+        max-width: 100px;
+        z-index: 2;
+        margin: 5px 0 -5px;
+    }
+
+    ul.nav {
+        list-style: none;
+        margin: -15px auto auto;
+        padding: 0;
+        display: flex;
+        position: relative;
+        z-index: 1;
+        li {
+            position: relative;
+            a {
+                text-decoration: none;
+                color: $whitish;
+                text-transform: uppercase;
+                margin: 0 20px;
+                line-height: 46px;
+                white-space: nowrap;
+            }
+            margin-bottom: auto;
+            ul {
+                &.sub-nav {
+                    position: absolute;
+                    background-color: $whitish;
+                    margin: 0;
+                    list-style: none;
+                    padding: 10px 0;
+                    left: 20px;
+                    display: none;
+                    box-shadow: 0 2px 3px #ccc;
+                    li {
+                        a {
+                            margin: 0;
+                            line-height: 40px;
+                            padding: 0 20px;
+                            white-space: nowrap;
+                            display: block;
+                            width: 100%;
+                            position: relative;
+                            color: #333;
+                            &:hover {
+                                background-color: rgba(0,0,0,0.15);
+                            }
+                        }
+                    }
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        top: -20px;
+                        border: 9px solid transparent;
+                        border-bottom: 12px solid $whitish;
+                        left: 10px;
+                    }
+                }
+            }
+            &:hover {
+                ul {
+                    &.sub-nav {
+                        display: block;
+                    }
+                }
+            }
+        }
+        &.sub-nav {
+            margin-right: 0;
+            li {
+                a {
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+    .btn-nav {
+        padding: 0;
+        width: 48px;
+        background: transparent;
+        font-size: 34px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 48px;
+        line-height: 48px;
+        display: none;
+        border: 0;
+        color:$white
+    }
+    .search-box {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        z-index: 999;
+        background-color: $whitish;
+        left: 0;
+        right: 0;
+        display: flex;
+        background-image: url('/pi-cms/api/5def5817c7cdc.png');
+        background-repeat: no-repeat;
+        background-position: 108% 106%;
+        background-size: 250px;
+        form {
+            margin: auto;
+            position: relative;
+            background-color: $gray;
+            width: 300px;
+            .searched-results {
+              position: absolute;
+              left: 0;
+              right: 0;
+              top: 50px;
+              ul.results-list {
+                max-height: 200px;
+                overflow: auto;
+                background-color: #fff;
+                box-shadow: 0 2px 3px #ccc;
+                margin: 0;
+                padding: 0;
+                li {
+                    border-bottom: 1px solid #eee;
+                    padding: 10px 15px;
+                    p {
+                        font-size: 14px;
+                        margin: 0;
+                    }
+                    &:hover {
+                        box-shadow: 0 0 3px #ccc;
+                        background-color: #eee;
+                    }
+                }
+
+            }
+
+            }
+            .form-group {
+                margin: 0;
+                .search-button {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    font-size: 20px;
+                    color: #999;
+                    user-select: none;
+                    line-height: 50px;
+                    width: 50px;
+                    z-index: 0;
+                    text-align: center;
+                }
+
+                input {
+                    position: relative;
+                    z-index: 1;
+                    background: transparent;
+                    padding-right: 50px;
+                }
+                label {
+                    z-index: 2;
+                }
+            }
+        }
+        .close-button {
+            position: absolute;
+            color: $dark_gray;
+            font-size: 44px;
+            right: 0;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            padding: 0;
+        }
+    }
+
+}
+
+@media (max-width: 800px) {
+    widget-header {
+        flex-direction: column;
+        &:after {
+            bottom: auto;top: 48px;
+        }
+        ul.nav {
+            flex-direction: column;
+            display: none;
+            width: 100%;
+            margin: 0 !important;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50px;
+            text-align: right;
+            background-color: rgba(0,0,0,0.25);
+            li {
+                a {
+                    line-height: 30px;
+                }
+            }
+            &.sub-nav {
+                top: 230px;
+                li a {
+                    padding-right: 10px !important;
+                }
+            }
+            &.show {
+                display: block;
+            }
+        }
+        .btn-nav {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+@import '../../../../assets/scss/vars';
+widget-admin-footer {
+    min-height: 50px;
+    box-sizing: border-box;
+    border-top: 1px solid $gray;
+    background-color: $whitish;
+    display: flex;
+    p {
+        font-size: 12px;
+        line-height: 20px;
+        margin: auto 0;
+        padding: 0 20px;
+        color: #999;
+    }
+}

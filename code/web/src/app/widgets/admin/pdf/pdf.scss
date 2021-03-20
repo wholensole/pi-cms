@@ -1,0 +1,24 @@
+@import '../../../../assets/scss/vars';
+widget-admin-media {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+    .my-drop-zone {
+        border: dashed 2px #ddd;
+        height: 200px;
+        display: flex;
+        padding: 5px 10px;
+        div {
+            margin: auto;
+            font-size: 16px;
+            color: #999;
+            font-weight: 300;
+        }
+    }
+    .nv-file-over {
+        border: dotted 3px $red;
+    }
+}

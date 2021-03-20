@@ -1,0 +1,102 @@
+[
+  {
+    "url": "/solutions",
+    "title": "Solutions",
+    "subLinks": [
+      {
+        "url": "/pixelnet",
+        "title": "Pixelnet"
+      },
+      {
+        "url": "/canvas",
+        "title": "Canvas"
+      },
+      {
+        "url": "/catalyst-xl",
+        "title": "Catalyst XL™"
+      },
+      {
+        "url": "/fusion-catalyst",
+        "title": "FC4500"
+      },
+      {
+        "url": "/catalyst-4k",
+        "title": "Catalyst 4K™"
+      },
+      {
+        "url": "/j400",
+        "title": "J-Series"
+      },
+      {
+        "url": "/c-series",
+        "title": "C-Series"
+      },
+      {
+        "url": "/canvas-crs-4k",
+        "title": "Canvas CRS-4K™"
+      },
+      {
+        "url": "/streampoint",
+        "title": "Streampoint"
+      }
+    ]
+  },
+  {
+    "url": "/industries",
+    "title": "Industries",
+    "subLinks": [
+      {
+        "url": "/security",
+        "title": "Security"
+      },
+      {
+        "url": "/traffic-and-transportation",
+        "title": "Traffic & Transportation"
+      },
+      {
+        "url": "/utilities-and-telecom",
+        "title": "Utilities & Telecom"
+      },
+      {
+        "url": "/military-and-intelligence",
+        "title": "Military & Intelligence"
+      },
+      {
+        "url": "/healthcare",
+        "title": "Healthcare"
+      },
+      {
+        "url": "/government",
+        "title": "Government"
+      },
+      {
+        "url": "/emergency-operations",
+        "title": "Emergency Operations"
+      },
+      {
+        "url": "/education-and-training",
+        "title": "Education & Training"
+      },
+      {
+        "url": "/enterprise",
+        "title": "Enterprise"
+      }
+    ]
+  },
+  {
+    "url": "/case-studies",
+    "title": "Case Studies"
+  },
+  {
+    "url": "/events",
+    "title": "Events"
+  },
+  {
+    "url": "/about",
+    "title": "About"
+  },
+  {
+    "url": "/blog",
+    "title": "Blog"
+  }
+]

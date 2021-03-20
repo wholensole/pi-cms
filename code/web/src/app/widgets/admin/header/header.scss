@@ -1,0 +1,77 @@
+@import '../../../../assets/scss/admin-styles';
+widget-admin-header {
+    min-height: 80px;
+    box-sizing: border-box;
+    background-color: $white;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 1px 0 #ccc;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+    }
+    p {
+        margin: auto 0 auto 10px;
+        color: $primary;
+        user-select: none;
+        &.name {
+            color: $black;
+            margin-left: auto;
+            height: 100%;
+            line-height: 80px;
+            padding: 0 15px;
+            cursor: pointer;
+            i {
+                margin-right: 10px;
+                background-color: $gray;
+                display: inline-block;
+                width: 40px;
+                text-align: center;
+                line-height: 34px;
+                border-radius: 50%;
+                font-size: 14px;
+                border: 3px solid $whitish;
+                color: $whitish;
+            }
+        }
+    }
+    button {
+        &.btn-nav {
+            max-width: 50px;
+            min-width: 50px;
+            padding: 0;
+            color: $black;
+            font-size: 32px;
+            margin: auto 10px auto 0;
+            &:hover {
+                background-color: $black;
+            }
+        }
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        background-color: $white;
+        top: 80px;
+        li {
+            a {
+                display: block;
+                line-height: 40px;
+                padding: 0 15px;
+                i {
+                    margin-right: 10px;
+                }
+                &:hover {
+                    background-color: $gray;
+                }
+            }
+        }
+    }
+}

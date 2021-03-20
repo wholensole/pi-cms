@@ -1,0 +1,37 @@
+<div class="content">
+    <h1>{{page.title}} <label for="uploader" class="btn btn-yellow has-icon btn-small"><i class="hi-images"></i>Add Video</label></h1>
+    <input class="hidden" type='file' (change)="onSelectFile($event)" id="uploader" />
+    <form [formGroup]="mediaForm" (ngSubmit)="uploadMedia()">
+        <input class="hidden" type='text' formControlName="files" />
+        <input type="submit" class="hidden" id="uploaderButton" />
+    </form>
+    <div class="upload-box" *ngIf="urls.length>0">
+        <h2>Files to Upload</h2>
+        <div class="media-files">
+            <ul>
+                <li *ngFor="let url of urls">
+                    <video width="320" height="240">
+                        <source src="{{url.url}}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </li>
+            </ul>
+        </div>
+        <div class="buttons">
+            <label for="uploaderButton" class="btn btn-yellow has-icon next"><i class="hi-attachment"></i><span>Upload</span></label>
+        </div>
+    </div>
+    <div class="media-files">
+        <ul *ngIf="mediaFiles.length>0">
+            <li *ngFor="let media of mediaFiles" [ngClass]="{'selected': selectedVideos.indexOf(media.upload_path)!=-1}">
+                <span class="close hi-trash" (click)="delete(media.id)"></span>
+                <span class="hi-check check" (click)="toggleSelect(media.upload_path)" *ngIf="selectedVideos.indexOf(media.upload_path)==-1"></span>
+                <span class="hi-close close left" (click)="toggleSelect(media.upload_path)" *ngIf="selectedVideos.indexOf(media.upload_path)!=-1"></span>
+                <video width="320" height="240" controls>
+                    <source src="{{imageBase+media.upload_path}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </li>
+        </ul>
+    </div>
+</div>

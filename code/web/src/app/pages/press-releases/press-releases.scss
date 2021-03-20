@@ -1,0 +1,168 @@
+@import '../../../assets/scss/vars';
+template-press-releases {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    .banner {
+        background-image: url('/pi-cms/api/business-2651346_1920-min.jpg')
+    }
+    .contact-box {
+        max-width: 410px;
+        margin: 40px auto;
+        text-align: center;
+        h4 {
+            font-size: 22px;
+        }
+        p {
+            line-height:2;
+        }
+    }
+    .form-box {
+        display: flex;
+        margin: -20px -20px 20px;
+        line-height: 1.8;
+        box-shadow: 0 1px 3px #ccc;
+        .form {
+            flex: 3;
+            padding: 40px;
+        }
+
+        .form-meta {
+            flex: 1;
+            background-color: $black;
+            color: $whitish;
+            padding: 40px;
+            a {
+                color: $whitish
+            }
+            .contact-column {
+                margin-bottom: 20px;
+                display: flex;
+                i {
+                    vertical-align: bottom;
+                    margin-top: 6px;
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        h2, h3 {
+            margin: 0 0 20px;
+        }
+        h2 i {
+            float: right;
+            position: relative;
+            &:after {
+                content: "\f094";
+                position: absolute;
+                left: -36px;
+                margin-top: -5px;
+                font-size: 32px;
+                transform: rotateY(180deg);
+            }
+        }
+    }
+    ul.social-links {
+        display: flex;
+        list-style: none;
+        margin: 0 0 0 -10px;
+        padding: 0;
+        li a {
+            width: 40px;
+            margin: 0 10px 0 0;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+    }
+    .dual {
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .form-group {
+            padding-top: 20px;
+            margin-top: 0;
+            label {
+                top: 0;
+                line-height: 20px;
+                border: 0;
+                padding: 0;
+                font-size: 14px;
+            }
+            input, textarea {
+                border-bottom: 1px solid #ccc;
+                background-color: $whitish;
+            }
+        }
+    }
+    ul.posts {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+          margin: 20px 0 40px;
+          position: relative;
+          padding: 20px;
+          box-shadow: 0 1px 2px #ccc;
+          display: flex;
+          flex-direction: column;
+          img {
+              width: 100%;
+              min-height: 200px;
+              background-color: $gray;
+              margin: 0 0 20px;
+              background-image: url(/assets/images/placeholder.png);
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 100px;
+          }
+          h4 {
+              font-size: 24px;
+              line-height: 2;
+              display: flex;
+              margin-bottom: 20px;
+              img {
+                background: transparent;
+                width: 60px;
+                height: 49px;
+                margin: auto;
+                margin-right: 20px;
+                min-height: auto;
+                margin-left: 0;
+            }
+          }
+          .description {
+            max-height: 150px;
+            overflow: hidden;
+            margin-bottom: 20px;
+          }
+          p {
+              line-height: 1.5;
+              &.meta-content {
+                  margin-bottom: 10px !important;
+                  i {
+                      margin-right: 10px;
+                  }
+              }
+          }
+          p.date {
+              background-color: $primary;
+              color: $whitish;
+              position: absolute;
+              padding: 0 25px;
+              line-height: 40px;
+              border-radius: 20px;
+              top: -20px;
+          }
+          a.read-more {
+              margin-left: auto;
+              text-decoration: underline;
+              font-size: 16px;
+              &::after {content: ' ...';}
+          }
+      }
+  }
+}

@@ -1,0 +1,25 @@
+@import '../../../../assets/scss/vars';
+template-admin-users {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+    .status {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        margin-right: 10px;
+        &.active {
+            background-color: $green;
+        }
+        &.inactive {
+            background-color: $primary;
+        }
+        &.trashed {
+            background-color: $red;
+        }
+    }
+}

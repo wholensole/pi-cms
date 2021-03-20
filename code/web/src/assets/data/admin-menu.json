@@ -1,0 +1,217 @@
+[
+  {
+    "icon": "hi-block",
+    "url": "/dashboard",
+    "title": "Dashboard"
+  },
+  {
+    "icon": "hi-images",
+    "url": "/media",
+    "title": "Media"
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/post",
+    "title": "Posts",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/post",
+        "title": "All Posts"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/post/add",
+        "title": "Add Post",
+        "queryParams": {"action":"add"}
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/page",
+    "title": "Pages",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/page",
+        "title": "All Pages"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/page/add",
+        "title": "Add Page"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/solution",
+    "title": "Solutions",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/solution",
+        "title": "All Solutions"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/solution/add",
+        "title": "Add Solution"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/industry",
+    "title": "Industries",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/industry",
+        "title": "All Industries"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/industry/add",
+        "title": "Add Industry"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/faq",
+    "title": "FAQs",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/faq",
+        "title": "All FAQs"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/faq/add",
+        "title": "Add FAQ"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/career",
+    "title": "Careers",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/career",
+        "title": "All Careers"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/career/add",
+        "title": "Add Career"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/press-release",
+    "title": "Press Releases",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/press-release",
+        "title": "All Press Releases"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/press-release/add",
+        "title": "Add Press Release"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/support",
+    "title": "Support",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/support",
+        "title": "All Supports"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/support/add",
+        "title": "Add Support"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/posts/case-study",
+    "title": "Case Study",
+    "subLinks": [
+      {
+        "icon": "hi-pencil",
+        "url": "/posts/case-study",
+        "title": "All Case Studies"
+      },
+      {
+        "icon": "hi-pencil",
+        "url": "/post/case-study/add",
+        "title": "Add Case Study"
+      }
+    ]
+  },
+  {
+    "icon": "hi-dihadiwala",
+    "url": "/posts/team-member",
+    "title": "Management Team",
+    "subLinks": [
+      {
+        "icon": "hi-dihadiwala",
+        "url": "/posts/team-member",
+        "title": "All Team Members"
+      },
+      {
+        "icon": "hi-dihadiwala",
+        "url": "/post/team-member/add",
+        "title": "Add Team Member"
+      }
+    ]
+  },
+  {
+    "icon": "hi-pencil",
+    "url": "/seo",
+    "title": "Seo content",
+    "subLinks": [
+      {
+        "icon": "hi-map",
+        "url": "/sitemap",
+        "title": "Sitemap"
+      },
+      {
+        "icon": "hi-robot",
+        "url": "/robots",
+        "title": "robots.txt"
+      }
+    ]
+  },
+  {
+    "icon": "hi-suru",
+    "url": "/chatbot/generic",
+    "title": "Chatbot",
+    "subLinks": [
+      {
+        "icon": "hi-chat",
+        "url": "/chatbot/generic",
+        "title": "Generic Messages"
+      },
+      {
+        "icon": "hi-googlehangoutschat",
+        "url": "/chatbot/query",
+        "title": "Queries"
+      }
+    ]
+  }
+]

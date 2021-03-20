@@ -1,0 +1,14 @@
+<a [routerLink]="['']" title="PI CMS" class="logo"><img src="/assets/images/logo-200.png" /></a>
+<ul class="side-nav" role="nav">
+    <li *ngFor="let item of navLinks" [ngClass]="{'active': '/admin'+item.url == route || isActiveLink(item.subLinks)}">
+        <a [routerLink]="['/admin'+item.url]" [ngClass]="{'active': '/admin'+item.url == route && !item.subLinks}"><i [class]="item.icon"></i>{{item.title}}</a>
+        <ul *ngIf="item.subLinks">
+            <li *ngFor="let i of item.subLinks" [ngClass]="{'active': '/admin'+i.url == route}">
+                <a [href]="'/admin'+i.url" [ngClass]="{'active': '/admin'+i.url == route}"><i [class]="i.icon"></i>{{i.title}}</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a [routerLink]="['/']" target="_blank"><i class="hi-paper-plane1"></i>View Site</a>
+    </li>
+</ul>

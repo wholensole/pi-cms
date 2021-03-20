@@ -1,0 +1,36 @@
+<widget-header></widget-header>
+<div class="main">
+    <div class="banner boxed">
+        <div class="container">
+            <ngx-typed-js [strings]="[page.title]" [typeSpeed]="100">
+                <h1 class="typing title">{{page.title}}</h1>
+            </ngx-typed-js>
+        </div>
+    </div>
+    <div class="content container flex-container">
+        <main class="main-content">
+            <ul class="posts">
+                <li *ngFor="let item of posts">
+                    <h4>
+                      <img src="https://www.pi-cms.com/pi-cms/api/news.png" alt="{{item.title}}" />
+                      <span>{{item.title}}</span>
+                    </h4>
+                    <div class="description" [innerHtml]="item.content"></div>
+                    <!-- <p class="categories">{{item.categories}}</p>
+                    <p class="tags">{{item.tags}}</p> -->
+                    <p class="date">{{item.post_date}}</p>
+                    <a class="read-more" [routerLink]="['/'+item.slug]" title="{{item.title}}">Read More</a>
+                </li>
+            </ul>
+            <ul class="pagination" *ngIf="pagesCount>1">
+                <li (click)="getPosts('press-release', pageSize, pageNumber-1)" class="prev" [ngClass]="{'inactive': pageNumber == 0}"><i class="icon">&laquo;</i><span> Prev</span></li>
+                <li *ngFor="let p of Arr(pagesCount).fill(1);index as i" (click)="getPosts('press-release', pageSize, i)" [ngClass]="{'active': i == pageNumber}">{{i+1}}</li>
+                <li (click)="getPosts('press-release', pageSize, pageNumber+1)" class="next" [ngClass]="{'inactive': pageNumber+1 == pagesCount}"><span>Next </span><i class="icon">&raquo;</i></li>
+            </ul>
+        </main>
+        <aside class="main-sidebar">
+          <widget-sidebar></widget-sidebar>
+        </aside>
+    </div>
+</div>
+<widget-footer></widget-footer>

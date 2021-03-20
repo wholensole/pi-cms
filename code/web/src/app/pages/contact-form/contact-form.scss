@@ -1,0 +1,107 @@
+@import '../../../assets/scss/vars';
+template-contact-form {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    .banner {
+        background-image: url('/pi-cms/api/5de6e250ed36e.png')
+    }
+    .contact-box {
+        max-width: 410px;
+        margin: 40px auto;
+        text-align: center;
+        h4 {
+            font-size: 22px;
+        }
+        p {
+            line-height:2;
+        }
+    }        
+    h1.title {
+        color: $black;
+    }
+    .form-box {
+        display: flex;
+        margin: -20px -20px 20px;
+        line-height: 1.8;
+        box-shadow: 0 1px 3px #ccc;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+        .form {
+            flex: 3;
+            padding: 40px;
+        }
+        
+        .form-meta {
+            flex: 1;
+            background-color: $black;
+            color: $whitish;
+            padding: 40px;
+            a {
+                color: $whitish
+            }
+            .contact-column {
+                margin-bottom: 20px;
+                display: flex;
+                i {
+                    vertical-align: bottom;
+                    margin-top: 6px;
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        h2, h3 {
+            margin: 0 0 20px;
+        }
+        h2 i {
+            float: right;
+            position: relative;
+            &:after {
+                content: "\f094";
+                position: absolute;
+                left: -36px;
+                margin-top: -5px;
+                font-size: 32px;
+                transform: rotateY(180deg);
+            }
+        }
+    }
+    ul.social-links {
+        display: flex;
+        list-style: none;
+        margin: 0 0 0 -10px;
+        padding: 0;
+        li a {
+            width: 40px;
+            margin: 0 10px 0 0;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+    }
+    .dual {
+        display: grid;
+        grid-gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .form-group {
+            padding-top: 20px;
+            margin-top: 0;
+            label {
+                top: 0;
+                line-height: 20px;
+                border: 0;
+                padding: 0;
+                font-size: 14px;
+            }
+            input, textarea {
+                border-bottom: 1px solid #ccc;
+                background-color: $whitish;
+            }
+        }
+    }
+}

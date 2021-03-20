@@ -1,0 +1,23 @@
+@import '../../../../assets/scss/vars';
+template-admin-chatbot {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    .modal-box {
+        .modal {
+            background-color: $white;
+            .form-group {
+                input, textarea {
+                    border-radius: 0;
+                    background-color: $whitish;
+                    min-width: 300px;
+                }
+            }
+        }
+    }
+    p.query {
+        margin-bottom: 10px;
+    }
+}

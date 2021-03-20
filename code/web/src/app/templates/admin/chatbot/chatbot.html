@@ -1,0 +1,47 @@
+<widget-admin-sidebar></widget-admin-sidebar>
+<div class="main">
+    <widget-admin-header></widget-admin-header>
+    <div class="content">
+        <h1>{{page.title}}: {{page.subTitle}}
+            <button class="btn btn-yellow btn-small" (click)="showMsgForm()">Add New</button>
+        </h1>
+        <table *ngIf="queries.length>0">
+            <tbody>
+                <tr *ngFor="let i of queries">
+                    <td>
+                        <p class="query"><b>Q: </b>{{i.Q}}</p>
+                        <p class="ans"><b>A: </b>{{i.A}}</p>
+                        <div class="actions">
+                            <i class="hi-trash" (click)="trashQuery(i.id)"></i>
+                            <i class="hi-pencil" (click)="editQuery(i)"></i>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <widget-admin-footer></widget-admin-footer>
+</div>
+
+<div class="modal-box" *ngIf="addMsg">
+    <div class="modal">
+        <span class="modal-close hi-close" (click)="addMsg=false"></span>
+        <h3 class="mb30">{{formTitle}} {{page.subTitle}}</h3>
+        <form [formGroup]="msgForm" (ngSubmit)="addQuery()">
+            <div class="form-group validate-input">
+                <input type="text" formControlName="Q" autofocus />
+                <label [ngClass]="{'active':msgForm.value.Q!=''}" for="Q">Query</label>
+                <small class="msg text-danger">Please enter a Query</small>
+            </div>
+            <div class="form-group validate-input">
+                <textarea formControlName="A"></textarea>
+                <label [ngClass]="{'active':msgForm.value.A!=''}" for="A">Answer</label>
+                <small class="msg text-danger">Please enter related Answer</small>
+            </div>
+            <div class="buttons">
+                <input type="hidden" formControlName="queryType" />
+                <button class="center btn has-icon btn-yellow"><i class="hi-paper-plane1"></i>Add</button>
+            </div>
+        </form>
+    </div>
+</div>

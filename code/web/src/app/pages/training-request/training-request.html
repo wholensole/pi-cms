@@ -1,0 +1,283 @@
+<widget-header></widget-header>
+<div class="main">
+    <div class="banner boxed">
+        <div class="container">
+            <ngx-typed-js [strings]="[page.title]" [typeSpeed]="100">
+                <h1 class="typing title">{{page.title}}</h1>
+            </ngx-typed-js>
+        </div>
+    </div>
+    <div class="content container">
+        <div class="form-box">
+            <div class="form">
+                <form [formGroup]="trainingRequestForm" (ngSubmit)="trainingRequest()">
+                    <h6 class="sub-header">Company Information</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="name" autofocus />
+                            <label [ngClass]="{'active':trainingRequestForm.value.name!=''}" for="name">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="title" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.title!=''}" for="title">Title</label>
+                            <small class="msg text-danger">Please enter your Title</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="company" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.company!=''}" for="company">Company</label>
+                            <small class="msg text-danger">Please enter your Company</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="email" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.email!=''}" for="email">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="phone" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.phone!=''}" for="phone">Phone #</label>
+                            <small class="msg text-danger">Please enter your Phone</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <select formControlName="country">
+                                <option *ngFor='let item of countryList | keyvalue' value='item.key'>{{item.value}}</option>
+                            </select>
+                            <label [ngClass]="{'active':trainingRequestForm.value.country!=''}" for="Country">Country</label>
+                            <small class="msg text-danger">Please enter your Country</small>
+                        </div>
+                    </div>
+
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="address1" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.address1!=''}" for="address 1">address1</label>
+                            <small class="msg text-danger">Please enter your address 1</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="address2" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.address!=''}" for="address">Address 2</label>
+                        </div>
+                    </div>
+
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="city" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.city!=''}" for="address 1">City</label>
+                            <small class="msg text-danger">Please enter your City</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="state" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.state!=''}" for="state">state</label>
+                            <small class="msg text-danger">Please enter your State</small>
+                        </div>
+                    </div>
+
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="zipcode" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.zipcode!=''}" for="address 1">zipcode</label>
+                            <small class="msg text-danger">Please enter your Zipcode</small>
+                        </div>
+                    </div>
+
+                    <h6 class="sub-header">Product(s) Training Requested</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <div class='check-group'>
+                                <input type="checkbox" formControlName="trainingRequested">
+                                <label class="position-relative" [ngClass]="{'active':trainingRequestForm.value.country!=''}" for="Country">PixelNet / TouchCommand (Tuesday)</label>
+                            </div>
+                            <div class='check-group'>
+                                <input type="checkbox" formControlName="trainingRequested">
+                                <label class="position-relative" [ngClass]="{'active':trainingRequestForm.value.country!=''}" for="Country">Fusion Catalyst / ControlPoint (Wednesday)</label>
+                            </div>
+                            <div class='check-group'>
+                                <input type="checkbox" formControlName="trainingRequested">
+                                <label class="position-relative" [ngClass]="{'active':trainingRequestForm.value.country!=''}" for="Country">Canvas (Thursday)</label>
+                            </div>
+                            <small class="msg text-danger">Please enter your Training Requested</small>
+                        </div>
+                    </div>
+
+                    <h5 class="sub-heading">Attendees</h5>
+
+                    <h6 class="sub-header">Attendee 1</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName1" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName1!=''}" for="attendeeName1">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail1" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail1!=''}" for="attendeeEmail1">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+                    <h6 class="sub-header">Attendee 2</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName2" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName2!=''}" for="attendeeName2">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail2" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail2!=''}" for="attendeeEmail2">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 3</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName3" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName3!=''}" for="attendeeName3">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail3" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail3!=''}" for="attendeeEmail3">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 4</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName4" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName4!=''}" for="attendeeName4">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail4" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail4!=''}" for="attendeeEmail4">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 5</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName5" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName5!=''}" for="attendeeName5">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail6" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail6!=''}" for="attendeeEmail6">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 6</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName6" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName6!=''}" for="attendeeName6">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail6" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail6!=''}" for="attendeeEmail6">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 7</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName7" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName7!=''}" for="attendeeName7">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail7" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail7!=''}" for="attendeeEmail7">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 8</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName8" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName8!=''}" for="attendeeName8">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail8" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail8!=''}" for="attendeeEmail8">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 9</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName8" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName8!=''}" for="attendeeName8">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail8" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail8!=''}" for="attendeeEmail8">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+
+                    <h6 class="sub-header">Attendee 10</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeName10" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName10!=''}" for="attendeeName10">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="attendeeEmail10" />
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail10!=''}" for="attendeeEmail10">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+
+                    <h6 class="sub-header">Requested Training Dates</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <dp-date-picker formControlName="date1"></dp-date-picker>
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeName10!=''}" for="attendeeName10">First Choice Of Date</label>
+                        </div>
+                        <div class="form-group validate-input">
+                            <dp-date-picker formControlName="date2"></dp-date-picker>
+                            <label [ngClass]="{'active':trainingRequestForm.value.attendeeEmail10!=''}" for="attendeeEmail10">Second Chooice Of Date</label>
+                        </div>
+                    </div>
+
+                    <h6 class="sub-header">Comments, questions, special needs</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <textarea formControlName="comment"></textarea>
+                            <label [ngClass]="{'active':trainingRequestForm.value.comment!=''}" for="comment">Please provide information on any special needs that we can provide for, and any comments or questions you might have.</label>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn center has-icon btn-yellow btn-right"><i class="hi-paper-plane1"></i>Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<widget-footer></widget-footer>

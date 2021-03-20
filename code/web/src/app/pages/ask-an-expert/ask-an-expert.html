@@ -1,0 +1,75 @@
+<widget-header></widget-header>
+<div class="main">
+    <div class="banner boxed">
+        <div class="container">
+            <ngx-typed-js [strings]="[page.title]" [typeSpeed]="100">
+                <h1 class="typing title">{{page.title}}</h1>
+            </ngx-typed-js>
+        </div>
+    </div>
+    <div class="content container">
+        <div class="form-box">
+            <div class="form">
+                <h2>Ask an Expert</h2>
+                <p>Please complete the following form to have a PI CMS expert contact you.</p>
+                <form [formGroup]="askExpertForm" (ngSubmit)="contact()">
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="name" autofocus />
+                            <label [ngClass]="{'active':askExpertForm.value.name!=''}" for="name">Name</label>
+                            <small class="msg text-danger">Please enter your Name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="title" />
+                            <label [ngClass]="{'active':askExpertForm.value.title!=''}" for="title">Title</label>
+                            <small class="msg text-danger">Please enter your Title</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="company" autofocus />
+                            <label [ngClass]="{'active':askExpertForm.value.company!=''}" for="company">Company</label>
+                            <small class="msg text-danger">Please enter your Company</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="phone" />
+                            <label [ngClass]="{'active':askExpertForm.value.phone!=''}" for="phone">Phone</label>
+                            <small class="msg text-danger">Please enter your Phone</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="email" formControlName="email" />
+                            <label [ngClass]="{'active':askExpertForm.value.email!=''}" for="email">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="cell" />
+                            <label [ngClass]="{'active':askExpertForm.value.cell!=''}" for="cell">Cell</label>
+                            <small class="msg text-danger">Please enter your Cell</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="businessType" />
+                            <label [ngClass]="{'active':askExpertForm.value.businessType!=''}" for="businessType">Business Type</label>
+                            <small class="msg text-danger">Please enter your Business Type</small>
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <textarea formControlName="question"></textarea>
+                            <label [ngClass]="{'active':askExpertForm.value.question!=''}" for="question">Your Question</label>
+                            <small class="msg text-danger">Please enter Your Question</small>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="center btn has-icon btn-yellow btn-right"><i class="hi-paper-plane1"></i>Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<widget-footer></widget-footer>

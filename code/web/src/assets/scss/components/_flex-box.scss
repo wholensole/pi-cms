@@ -1,0 +1,57 @@
+.flex-banners {
+    padding: 0 10px;
+    display: flex;
+    margin-bottom: 20px;
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+    &.box-vertical {
+        flex-direction: column;
+    }
+    .flex-box {
+        position: relative;
+        flex: 1;
+        display: flex;
+        min-height: 400px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 20px;
+        a:not(.btn) {
+            position: absolute;
+            z-index: 3;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        &:before {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 0;
+            background-color: rgba(0,0,0,0.15);
+        }
+        .box-text {
+            position: relative;
+            color: $whitish;
+            padding: 10px 20px 1px;
+            margin: auto;
+            text-align: center;
+        }
+        h4 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-transform: uppercase;
+            padding: 0 20px;
+        }
+        p {
+            font-size: 20px;
+        }
+    }
+}

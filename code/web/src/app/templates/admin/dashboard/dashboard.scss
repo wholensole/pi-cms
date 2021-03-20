@@ -1,0 +1,27 @@
+@import '../../../../assets/scss/vars';
+template-admin-dashboard {
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    .body {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                margin: 0 0 10px 0;
+                a {
+                    text-decoration: none;
+                    i {
+                        color: $dark_gray;
+                    }
+                }
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}

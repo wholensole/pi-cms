@@ -1,0 +1,30 @@
+<widget-admin-sidebar></widget-admin-sidebar>
+<div class="main">
+    <widget-admin-header></widget-admin-header>
+    <div class="content">
+        <h1>{{page.title}} <a title="Click to view" href="/robots.txt" target="_blank" class="hi-paper-plane1"></a></h1>
+        <form class="columns" [formGroup]="robotsForm" (ngSubmit)="saveRobots()">
+            <div class="left">
+                <div class="box">
+                    <h4 class="head">
+                        File Content
+                    </h4>
+                    <div class="body">
+                        <textarea class="description" formControlName="urls" placeholder="Type your robots.txt here"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="box">
+                    <h4 class="head">
+                        Meta
+                    </h4>
+                    <div class="body">
+                        <button [disabled]="!robotsForm.dirty" [title]="(!robotsForm.dirty)?'Please make some chnages to save':'Click here to save'" class="btn btn-yellow has-icon" type="submit"><i class="hi-check"></i>Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <widget-admin-footer></widget-admin-footer>
+</div>

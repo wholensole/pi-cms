@@ -1,0 +1,15 @@
+@import '../../../../assets/scss/vars';
+template-login {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    background-color: $gray;
+    a.logo {
+        margin: auto auto 0;
+        max-width: 140px;
+    }
+    .card {
+        margin-top: 20px;
+    }
+}

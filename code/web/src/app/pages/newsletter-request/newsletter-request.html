@@ -1,0 +1,46 @@
+<widget-header></widget-header>
+<div class="main">
+    <div class="banner boxed">
+        <div class="container">
+            <ngx-typed-js [strings]="[page.title]" [typeSpeed]="100">
+                <h1 class="typing title">{{page.title}}</h1>
+            </ngx-typed-js>
+        </div>
+    </div>
+    <div class="content container">
+        <div class="form-box">
+            <div class="form">
+                <form [formGroup]="newsletterForm" (ngSubmit)="newsletterRequest()">
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="firstName" autofocus />
+                            <label [ngClass]="{'active':newsletterForm.value.firstName!=''}" for="firstName">First Name</label>
+                            <small class="msg text-danger">Please enter your First Name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="lastName" />
+                            <label [ngClass]="{'active':newsletterForm.value.lastName!=''}" for="lastName">Last Name</label>
+                            <small class="msg text-danger">Please enter your Last Name</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="company" />
+                            <label [ngClass]="{'active':newsletterForm.value.company!=''}" for="company">Company</label>
+                            <small class="msg text-danger">Please enter your Company</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="email" formControlName="email" />
+                            <label [ngClass]="{'active':newsletterForm.value.email!=''}" for="email">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button class="btn center has-icon btn-yellow btn-right"><i class="hi-paper-plane1"></i>Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<widget-footer></widget-footer>

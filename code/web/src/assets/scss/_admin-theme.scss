@@ -1,0 +1,138 @@
+ul, li, ol, i, span, p, div, section, nav, ::after, ::before, h1, h4, h3, h2, h5, h6, html, body, label, svg, text, table, thead, tbody, tr, th, td {
+    box-sizing: border-box;
+}
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+body {
+    @extend html;
+    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+    color: $black;
+    line-height: 1.5;
+}
+.card {
+    background-color: $whitish;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0 1px 2px #ccc;
+    min-width: 300px;
+    border-radius: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="phone"], select, textarea {
+    box-sizing: border-box;
+    background-color: $whitish;
+    border: 0;
+    border-radius: 20px;
+    line-height:50px;
+    height: 50px;
+    display: block;
+    width:100%;
+    font-size: 14px;
+    color: $black;
+    padding: 0 15px;
+    &:-internal-autofill-selected {
+        background-color: $whitish !important;
+        color: $black !important;
+        font-size: 14px;
+    }
+    &:focus {
+        outline: none;
+    }
+    &.no-outline {
+        &:focus {
+            outline: none;
+        }
+    }
+}
+textarea {
+    height: auto;
+    min-height: 150px;
+    line-height: 20px;
+    padding: 5px 15px;
+    resize: vertical;
+    &.description {
+        min-height: 400px;
+    }
+    &.no-outline {
+        &:focus {
+            outline: none;
+        }
+    }
+}
+label {
+    display: block;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    label {
+        position: absolute;
+        top: -10px;
+        background-color: $whitish;
+        font-size: 11px;
+        line-height: 17px;
+        padding: 0 7px;
+        border: 1px solid $black;
+    }
+    .ng-touched.ng-dirty.ng-invalid~.msg.text-danger {
+        display: block;
+    }
+}
+small {
+    box-sizing: border-box;
+    font-size: 11px;
+    line-height: 15px;
+    display: block;
+    &.msg {
+        display: none;
+    }
+}
+a {
+    box-sizing: border-box;
+    cursor: pointer;
+    color: $primary;
+    &:hover {
+        color: $primary;
+    }
+    &:focus {
+        color: $primary;
+        outline: none;
+    }
+}
+
+img {
+    box-sizing: border-box;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    .content {
+        background-color: $whitish;
+        min-height: calc(100% - 130px);
+        padding: 20px 20px 0;
+        overflow: auto;
+        h1 {
+            margin-bottom: 10px;
+        }
+    }
+}
+video {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}

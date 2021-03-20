@@ -1,0 +1,25 @@
+<div class="popover-box" *ngIf="showWidget">
+    <i class="close hi-close" (click)="showWidget = !showWidget"></i>
+    <i class="hi-robot"></i>
+    <p (click)="showChatbot=true">Let’s chat about how PI CMS can help you</p>
+</div>
+<img class="chatbot-icon" src="{{imageBase+'5e0fadc721ad2.png'}}" *ngIf="!showChatbot" (click)="showChatbot=true" />
+<div class="chatbot-window" [ngClass]="{'hidden': !showChatbot}">
+    <div class="head">
+        <p>Chat with us!</p>
+        <i class="hi-close" (click)="showChatbot=false"></i>
+    </div>
+    <div class="body">
+        <div *ngFor="let m of msgList" class="msg-box">
+            <div class="msg" [ngClass]="m.type">
+                <p>{{m.msg}}</p>
+                <small>{{m.time}}</small>
+            </div>
+        </div>
+        <div class="msg-bottom"></div>
+    </div>
+    <form class="footer" [formGroup]="askForm" (ngSubmit)="ansQuery()">
+        <textarea autofocus formControlName="query" placeholder="Enter your query here..." class="no-outline" (keydown.enter)="ansQuery()"></textarea>
+        <button type="submit" class="btn btn-send hi-paper-plane1"></button>
+    </form>
+</div>

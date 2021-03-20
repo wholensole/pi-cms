@@ -1,0 +1,100 @@
+table {
+    width: 100%;
+    border: 0;
+    border-collapse: collapse;
+    background-color: $white;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    thead, tbody {
+        tr {
+            td {
+                padding: 10px 15px;
+                border: 0;
+                vertical-align: top;
+                text-align: left;
+                min-width: 121px;
+                position: relative;
+                p {
+                    margin-bottom: 0;
+                }
+                &:first-child {
+                    padding-bottom: 40px;
+                }
+                .actions {
+                    display: flex;
+                    transition: all 0.1s ease-in-out;
+                    opacity: 0;
+                    visibility: hidden;
+                    left: 0;
+                    position: absolute;
+                    padding: 0;
+                    i, a {
+                        cursor: pointer;
+                        line-height: 40px;
+                        width: 40px;
+                        display: inline-block;
+                        text-align: center;
+                        color: $dark_gray;
+                        text-decoration: none;
+                        border-radius: 20px;
+                        &.hi-close {
+                            font-size: 24px;
+                        }
+                    }
+                }
+                &:hover {
+                    .actions {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+                &.small {
+                    width: 150px;
+                }
+            }
+            th {
+                @extend td;
+                vertical-align: middle !important;
+                padding-bottom: 10px !important;
+                font-weight: 700;
+            }
+
+        }
+    }
+    thead {
+        tr {
+            th {
+                background-color: $gray;
+            }
+        }
+    }
+    tbody {
+        tr:nth-child(odd) {
+            td {
+                background-color: $white;
+                .actions {
+                    i, a {
+                        &:hover {
+                            color: $primary;
+                            background-color: $gray;
+                        }
+                    }
+                }
+            }
+        }
+        tr:nth-child(even) {
+            td {
+                background-color: $gray;
+                .actions {
+                    i, a {
+                        &:hover {
+                            color: $primary;
+                            background-color: $white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

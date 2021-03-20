@@ -1,0 +1,72 @@
+<widget-header></widget-header>
+<div class="main">
+    <div class="banner banner-top">
+        <div class="container">
+            <ngx-typed-js [strings]="[page.title]" [typeSpeed]="100">
+                <h1 class="typing title">{{page.title}}</h1>
+            </ngx-typed-js>
+            <p>{{page.subTitle}}</p>
+            <a class="btn btn-yellow btn-large" (click)="scrolltoRead()">Read All Stories</a>
+        </div>
+    </div>
+    <!-- <div class="content container" *ngIf="showAllPosts">
+        <ul class="posts">
+            <li *ngFor="let item of posts">
+                <img src="{{imageBase+item.images}}" alt="{{item.title}}" />
+                <h4>{{item.title}}</h4>
+                <p class="description" [innerHtml]="item.excerpt"></p>
+                <p class="categories">{{item.categories}}</p>
+                <p class="tags">{{item.tags}}</p>
+                <p class="date">{{item.post_date}}</p>
+                <p class="small">{{getAuthor(item.author_id)}}</p>
+                <a class="read-more" [routerLink]="['/'+item.slug]" title="{{item.title}}">Read More</a>
+            </li>
+        </ul>
+        <ul class="pagination" *ngIf="pagesCount>1">
+            <li (click)="getPosts('case-study', pageSize, pageNumber-1)" class="prev" [ngClass]="{'inactive': pageNumber == 0}"><i class="icon">&laquo;</i><span> Prev</span></li>
+            <li *ngFor="let p of Arr(pagesCount).fill(1);index as i" (click)="getPosts('case-study', pageSize, i)" [ngClass]="{'active': i == pageNumber}">{{i+1}}</li>
+            <li (click)="getPosts('case-study', pageSize, pageNumber+1)" class="next" [ngClass]="{'inactive': pageNumber+1 == pagesCount}"><span>Next </span><i class="icon">&raquo;</i></li>
+        </ul>
+    </div> -->
+    <section class="white-section">
+        <div class="container tac">
+            <h4>More than 64,500 companies in over 100 countries across the globe rely on PI CMS to grow their business.</h4>
+            <img src="/pi-cms/api/5de5187baafe5.png" />
+        </div>
+    </section>
+    <section class="gray-section banner">
+        <div class="container">
+            <div class="text">
+                <h4>Make Better Decisions with PI CMS</h4>
+                <p>With high-performance visualization solutions from PI CMS, make every part of your decision-making and collaboration process more efficient, real-time and error-free.</p>
+            </div>
+            <a class="btn btn-yellow btn-large" (click)="goToContact()">Contact Us</a>
+        </div>
+    </section>
+    <section class="white-section more-section">
+        <div class="container tac">
+            <h4>Hear More From Companies Like Yours</h4>
+            <p class="industries-stories">
+                <a [routerLink]="['/security']">Security</a>
+                <a [routerLink]="['/traffic-and-transportation']">Traffic &amp; Transportation</a>
+                <a [routerLink]="['/utilities-and-telecom']">Utilities &amp; Telecom</a>
+                <a [routerLink]="['/military-and-intelligence']">Military &amp; Intelligence</a>
+                <a [routerLink]="['/healthcare']">Healthcare</a>
+                <a [routerLink]="['/government']">Government</a>
+                <a [routerLink]="['/emergency-operations']">Emergency Operations</a>
+                <a [routerLink]="['/education-and-training']">Education &amp; Training</a>
+                <a [routerLink]="['/enterprise']">Enterprise</a>
+            </p>
+            <widget-reviews-slider></widget-reviews-slider>
+        </div>
+    </section>
+    <!-- <section class="banner growth-banner">
+        <div class="container">
+            <h4>
+                57.3% of customers using PI CMS in 2018 saw an increase in sales revenue.
+            </h4>
+            <a class="btn btn-yellow" (click)="scrolltoRead()">Read All Reviews</a>
+        </div>
+    </section> -->
+</div>
+<widget-footer></widget-footer>

@@ -1,0 +1,43 @@
+<div class="progress-bar">
+    <div class="progress"></div>
+</div>
+<a [routerLink]="['/']" class="logo">
+    <img src="/assets/images/logo-white-200.png" />
+</a>
+<ul class="nav" [ngClass]="{'show': showMobileNav}">
+    <li *ngFor="let i of publicNavLinks">
+        <a [routerLink]="[i.url]">{{i.title}}</a>
+        <ul *ngIf="i.subLinks" class="sub-nav">
+            <li *ngFor="let j of i.subLinks" [ngClass]="{'active': j.url == route}">
+                <a [href]="j.url" [ngClass]="{'active': j.url == route}">{{j.title}}</a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<ul class="nav sub-nav" [ngClass]="{'show': showMobileNav}">
+    <li>
+        <a [routerLink]="['']" target="_blank">Partners</a>
+    </li>
+    <li>
+        <a class="hi-search" id="search-box" (click)="showSearchForm()"></a>
+    </li>
+</ul>
+<button (click)="showMobileNav=!showMobileNav" class="btn-nav hi-nav"></button>
+<div class="search-box" *ngIf="searchBoxVisible">
+    <button (click)="searchBoxVisible = false" class="hi-close close-button"></button>
+    <form [formGroup]="searchForm" (ngSubmit)="search()">
+        <div class="form-group validate-input">
+            <input type="text" formControlName="searchData" autofocus (keydown)="search()" />
+            <label [ngClass]="{'active':searchForm.value.searchData!=''}" for="searchData">Search Solutions and Industries</label>
+            <i class="hi-search search-button"></i>
+        </div>
+        <div class="searched-results">
+          <ul class="results-list">
+            <li *ngFor="let item of posts">
+              <p><a href="{{item.slug}}">{{item.title}}</a></p>
+            </li>
+          </ul>
+        </div>
+    </form>
+</div>
+<button class="btn back-to-top hi-chevron-top" title="Back to Top" (click)="scrollToTop()"></button>

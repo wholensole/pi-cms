@@ -1,0 +1,33 @@
+<div class="content">
+    <h1>{{page.title}} <label for="uploader" class="btn btn-yellow has-icon btn-small"><i class="hi-images"></i>Add Pdf's</label></h1>
+    <input class="hidden" type='file' (change)="onSelectFile($event)" multiple id="uploader" />
+    <form [formGroup]="mediaForm" (ngSubmit)="uploadMedia()">
+        <input class="hidden" type='text' formControlName="files" />
+        <input type="submit" class="hidden" id="uploaderButton" />
+    </form>
+    <div class="upload-box" *ngIf="urls.length>0">
+        <h2>Files to Upload</h2>
+        <div class="media-files">
+            <ul>
+                <li *ngFor="let url of urls" class="doc-box">
+                    <i class="doc-icon hi-adobe"></i>
+                    <p class="doc-name">{{url.name}}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="buttons">
+            <label for="uploaderButton" class="btn btn-yellow has-icon next"><i class="hi-attachment"></i><span>Upload</span></label>
+        </div>
+    </div>
+    <div class="media-files">
+        <ul *ngIf="mediaFiles.length>0">
+            <li *ngFor="let media of mediaFiles" [ngClass]="{'selected': selectedPdfs.indexOf(media.upload_path)!=-1}" class="doc-box">
+                <span class="close hi-trash" (click)="delete(media.id)"></span>
+                <span class="hi-check check" (click)="toggleSelect(media.upload_path)" *ngIf="selectedPdfs.indexOf(media.upload_path)==-1"></span>
+                <span class="hi-close close left" (click)="toggleSelect(media.upload_path)" *ngIf="selectedPdfs.indexOf(media.upload_path)!=-1"></span>
+                <i class="doc-icon hi-adobe"></i>
+                <p class="doc-name"><a href="{{imageBase+media.upload_path}}" target="_blank" title="Preview">{{media.upload_path}}</a></p>
+            </li>
+        </ul>
+    </div>
+</div>

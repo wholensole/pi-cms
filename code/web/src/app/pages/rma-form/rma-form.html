@@ -1,0 +1,191 @@
+<widget-header></widget-header>
+<div class="main">
+    <div class="banner boxed">
+        <div class="container">
+            <ngx-typed-js [strings]="[page.title]" [typeSpeed]="100">
+                <h1 class="typing title">{{page.title}}</h1>
+            </ngx-typed-js>
+        </div>
+    </div>
+    <div class="content container">
+        <div class="form-box">
+            <div class="form">
+                <form [formGroup]="rmaForm" (ngSubmit)="contact()">
+                    <h6 class="sub-header">Contact Information</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="name" autofocus />
+                            <label [ngClass]="{'active':rmaForm.value.name!=''}" for="name">Name</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="title" />
+                            <label [ngClass]="{'active':rmaForm.value.title!=''}" for="title">Title</label>
+                            <small class="msg text-danger">Please enter your Title</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="phone" />
+                            <label [ngClass]="{'active':rmaForm.value.phone!=''}" for="phone">Phone #</label>
+                            <small class="msg text-danger">Please enter your Phone</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="company" />
+                            <label [ngClass]="{'active':rmaForm.value.company!=''}" for="company">Company</label>
+                            <small class="msg text-danger">Please enter your Company</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="email" formControlName="email" />
+                            <label [ngClass]="{'active':rmaForm.value.email!=''}" for="email">Email</label>
+                            <small class="msg text-danger">Please enter your Email</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="mobilePhone" />
+                            <label [ngClass]="{'active':rmaForm.value.mobilePhone!=''}" for="mobilePhone">Mobile Phone</label>
+                            <small class="msg text-danger">Please enter your Mobile Phone</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="fax" />
+                            <label [ngClass]="{'active':rmaForm.value.fax!=''}" for="fax">Fax # </label>
+                            <small class="msg text-danger">Please enter your Fax</small>
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+
+                    <h6 class="sub-header">System Information</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="model" />
+                            <label [ngClass]="{'active':rmaForm.value.model!=''}" for="model">Model</label>
+                            <small class="msg text-danger">Please enter your Model</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="serialNumber" />
+                            <label [ngClass]="{'active':rmaForm.value.serialNumber!=''}" for="serialNumber">Serial Number</label>
+                            <small class="msg text-danger">Please enter your Serial Number</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="partModel" />
+                            <label [ngClass]="{'active':rmaForm.value.partModel!=''}" for="partModel">Part Model</label>
+                            <small class="msg text-danger">Please enter your Part Model</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <select>
+                                <option *ngFor='let item of problemTypeList | keyvalue' value='{{item.key}}'>{{item.value}}</option>
+                            </select>
+                            <label [ngClass]="{'active':rmaForm.value.problemType!=''}" for="problemType">Problem Type</label>
+                            <small class="msg text-danger">Please enter your Problem Type</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="repairPO" />
+                            <label [ngClass]="{'active':rmaForm.value.repairPO!=''}" for="repairPO">Repair PO #</label>
+                            <small class="msg text-danger">Please enter your Repair PO</small>
+                        </div>
+                    </div>
+
+                    
+                    <h6 class="sub-header">Shipping Information</h6>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="shipType" autofocus />
+                            <label [ngClass]="{'active':rmaForm.value.shipType!=''}" for="shipType">How to ship</label>
+                            <small class="msg text-danger">Please enter your name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="fedEx" />
+                            <label [ngClass]="{'active':rmaForm.value.fedEx!=''}" for="fedEx">FedEx #</label>
+                            <small class="msg text-danger">Please enter your FedEx</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="ups" />
+                            <label [ngClass]="{'active':rmaForm.value.ups!=''}" for="ups">UPS #</label>
+                            <small class="msg text-danger">Please enter your UPS</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="otherShip" />
+                            <label [ngClass]="{'active':rmaForm.value.otherShip!=''}" for="otherShip">Other Ship</label>
+                            <small class="msg text-danger">Please enter your Other Ship</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="shippingName" />
+                            <label [ngClass]="{'active':rmaForm.value.shippingName!=''}" for="shippingName">Name</label>
+                            <small class="msg text-danger">Please enter your Name</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="shippingCompany" />
+                            <label [ngClass]="{'active':rmaForm.value.shippingCompany!=''}" for="shippingCompany">Company</label>
+                            <small class="msg text-danger">Please enter your Company</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <select formControlName="country">
+                                <option *ngFor='let item of countryList | keyvalue' value='{{item.key}}'>{{item.value}}</option>
+                            </select>
+                            <label [ngClass]="{'active':rmaForm.value.country!=''}" for="country">Country </label>
+                            <small class="msg text-danger">Please enter your Country</small>
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="address1" />
+                            <label [ngClass]="{'active':rmaForm.value.address1!=''}" for="address1">Address 1</label>
+                            <small class="msg text-danger">Please enter your Address 1</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="address2" />
+                            <label [ngClass]="{'active':rmaForm.value.address2!=''}" for="address2">Address 2</label>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="city" />
+                            <label [ngClass]="{'active':rmaForm.value.city!=''}" for="city">City</label>
+                            <small class="msg text-danger">Please enter your City</small>
+                        </div>
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="state" />
+                            <label [ngClass]="{'active':rmaForm.value.state!=''}" for="state">State</label>
+                            <small class="msg text-danger">Please enter your State</small>
+                        </div>
+                    </div>
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <input type="text" formControlName="zipcode" />
+                            <label [ngClass]="{'active':rmaForm.value.zipcode!=''}" for="zipcode">ZIP code </label>
+                            <small class="msg text-danger">Please enter your ZIP code</small>
+                        </div>
+                    </div>
+
+
+                    <div class="dual">
+                        <div class="form-group validate-input">
+                            <textarea type="text" formControlName="problemDescription" ></textarea>
+                            <label [ngClass]="{'active':rmaForm.value.problemDescription!=''}" for="problemDescription">Problem Description </label>
+                        </div>
+                    </div>
+    
+
+                    <div class="buttons">
+                        <button class="btn center has-icon btn-yellow btn-right"><i class="hi-paper-plane1"></i>Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<widget-footer></widget-footer>
